@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto");
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 40px 10%;
+  background-color: #24252a;
+}
+
+.logo {
+  margin-right: auto;
+  color: aliceblue;
+  font-size: larger;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: #0088a9;
+}
+
+h1 {
+  text-align: center;
+  background-color: #486eec;
+  font-family: "Poppins", sans-serif;
+  color: azure;
+  margin-top: 1%;
+}
+
+table {
+  position: fixed;
+  top: 25%;
+  left: 2%;
+
+}
+td,
+th {
+  padding: 15px 30px;
+  text-align: center;
+}
+th {
+  background-color: #486eec;
+  color: #eeecec;
+  font-family: "Open Sans", Sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+tr {
+  width: 100%;
+  background-color: #284566;
+  font-family: "Montserrat", sans-serif;
+  color: #bdf71f;
+}
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: gold;
+  padding: 12px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}

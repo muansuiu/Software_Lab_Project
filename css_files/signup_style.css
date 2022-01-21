@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+
+
+
+  section {
+    background-image: url(../staticfiles/bg_img.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .container{
+    margin-top: 40px;
+    margin-left: 0;
+    max-width: 700px;
+    max-height: 700px;
+    width: 100%;
+    background-color:#1f2020;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    
+  }
+
+  .content a{
+      font-size: 24px;
+      color: azure;
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  form .user-details .input-box{
+    margin-bottom: 1px;
+    width: 45%;
+    height: 70px;
+    color: rgb(248, 244, 244);
+  }
+  form .input-box span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 5px;
+    border: 1px solid rgb(17, 15, 15);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  
+  
+   form .button{
+     height: 45px;
+     margin: 35px 0;
+     padding-left: 30%;
+   }
+   form .button input{
+    
+     height: 100%;
+     width: 50%;
+     border-radius: 5px;
+     border: none;
+     color: rgb(29, 21, 21);
+     font-size: 18px;
+     font-weight: 500;
+     letter-spacing: 1px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     background:  #f8e803;
+   }
+
+   .container .button2{
+       padding-left: 30%;
+       color: azure;
+   }
+  
+   .container .btn2 { 
+    height: 45px;
+     width: 50%;
+     border-radius: 5px;
+     border: none;
+     color: rgb(12, 10, 10);
+     font-size: 18px;
+     font-weight: 500;
+     letter-spacing: 1px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     background:  #970bf5;
+     color: azure;
+   }
+

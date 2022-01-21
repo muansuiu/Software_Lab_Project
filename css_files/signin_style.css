@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+html {
+    font-family: "Montserrat";
+    
+  }
+
+
+  section {
+    background-image: url(../staticfiles/bg_img.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .right {
+    width: 50%;
+    padding: 40px;
+    min-height: 400px;
+    background-color: rgb(40, 39, 41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    margin-left: -90px;
+    
+  }
+  .right h1 {
+    font-size: 40px;
+    font-weight: lighter;
+  }
+  .right p {
+    margin: 20px 0;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+
+  form input{
+    height: 35px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 5px;
+    border: 1px solid rgb(22, 19, 19);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  select {
+    height: 30px;
+  }
+
+  form .btn1{
+    height: 40px;
+    margin: 35px 0;
+    
+  }
+
+  .container .btn1{
+    padding-left: 30%;
+  }
+  form .btn1 input{
+    height: 100%;
+    width: 50%;
+    border-radius: 5px;
+    border-color: rgb(22, 19, 19);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background:  #217aff;
+  }
+
+
+
+  .container .other_button{
+    padding-left: 30%;
+  }
+
+  .btn2 {
+    height: 40px;
+    width: 50%;
+    background: rgb(218, 238, 238);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-color: rgb(27, 27, 27);
+  }
+
+  .btn3 {
+    height: 40px;
+    margin: 35px 0;
+    width: 50%;
+    background: rgb(95, 228, 62);
+    border-color: rgb(22, 19, 19);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+
+
+  

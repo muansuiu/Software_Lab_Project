@@ -1,122 +1,47 @@
+<!DOCTYPE html>
+
+
 <head>
-<title>
-Rate Please
-</title>
-<style>
-  body{
-            background-color: white;
-            color: black;
-            font-size: 22px;
-            text-align:center;
-            
-        }
-       
-        /* Add a black background color to the top navigation */
-        .topnav {
-        background-color: blue;
-        border: black 2px solid;
-        overflow: hidden;
-        float: none;
-        position: absolute;
-        
-        left: 50%;
-        transform: translate(-50%, -50%);
-        }
+    <title>
+        Rating Page
 
-        button{
-            background-color: darkblue;
-            color: yellow;
-            font-size: 20px;
-        }
-        button:hover{
-            background-color: cyan;
-            
-            color: black;
-            font-size: 20px;
-        }
+    </title>
+    <link rel="stylesheet" href="css_files/rating_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        /* Style the links inside the navigation bar */
-        .topnav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 25px;
-        }
+    <script>
+          function rate(no, orderno){
 
-        /* Change the color of links on hover */
-        .topnav a:hover {
-        background-color: lightgreen;
-        color: black;
-        }
+            window.location.assign("runrate.php?rate=" + no + "-" + orderno);
 
-        /* Add a color to the active/current link */
-        .topnav a.active {
-        background-color: #4CAF50;
-        color: black;
-        }
-        
-        h1{
-            text-align: center;
-            color: black;
-        }
-        .pendingorders {
-        float: left;
-        color: blue;
-        margin-right: 70px;
-        margin-left: 70px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 18px;
-        
-        
-        }
-        table, th, td{
-            border: 1px solid lightblue;
-            border-collapse: collapse;
-            text-align: center;
-            font-size: 20px;
-            
-        }
-        tr{
-            color: black;
-        }
-        tr:hover{
-            background-color: #9AC1EF;
-        }
-        .conforders{
-        float: left;
-        color: blue;
-        text-align: center;
-        margin-right: 70px;
-        text-decoration: none;
-        font-size: 18px;
-        }
-</style>
-<script>
-  function rate(no, orderno){
-
-      window.location.assign("runrate.php?rate=" + no + "-" + orderno);
-
-  }
-  function goback(){
-    window.location.assign('homepage.php');
-  }
-
-  
-</script>
+}
+    </script>
 
 </head>
 
-<?php 
-session_start();
-?>
+<body>
+    <header>
+        <a class="logo">Online Tailor Shop</a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="homepage.php">Home</a></li>
+                <li><a href="status.php">Orders</a></li>
+                <li><a href="profile.php">Profile Details</a></li>
+                <li><a href="updatemea.php">Update Measurement</a></li>
+                <li><a href="logoutprocess.php">Log Out</a></li>
 
-<div class="pendingorders">
+            </ul>
+        </nav>
+    </header>
 
-<table>
-   <h1> Delivered Orders</h1>
+    <?php
+    session_start();
+    ?>
+
+
+
+    <table>
+        <h1> Delivered Orders</h1>
         <thead>
             <tr>
                 <th>Order No</th>
@@ -126,138 +51,138 @@ session_start();
                 <th>Status</th>
                 <th>Total Price</th>
                 <th>Rating</th>
-                
-          
+
+
             </tr>
         </thead>
-        
+
         <tbody>
             <?php
-                try{
-                    ///php-mysql 3 way. We will use PDO - PHP data object
-                    $dbcon = new PDO("mysql:host=localhost:3306;dbname=tms_db;","root","");
-                    $dbcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $id = $_SESSION['id'];
-                    $sqlquery="SELECT * FROM orders WHERE status='Delivered' AND c_userid='$id'";
-                    //echo $sqlquery;
-                    
-                    try{
-                        $returnval=$dbcon->query($sqlquery); ///PDOStatement
-                        
-                        $productstable=$returnval->fetchAll();
+            try {
+                ///php-mysql 3 way. We will use PDO - PHP data object
+                $dbcon = new PDO("mysql:host=localhost:3306;dbname=tms_db;", "root", "");
+                $dbcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $id = $_SESSION['id'];
+                $sqlquery = "SELECT * FROM orders WHERE status='Delivered' AND c_userid='$id'";
+                //echo $sqlquery;
 
-                        if($returnval->rowCount() == 0){
-                            ?>
+                try {
+                    $returnval = $dbcon->query($sqlquery); ///PDOStatement
 
-                            <tr>
-                                <td colspan="7">Empty</td>    
-                            </tr>
+                    $productstable = $returnval->fetchAll();
 
-                            <?php
-                        }else{
-                           
-                        }
-                        
-                        foreach($productstable as $row){
-                            ?>
-                                <tr>
-                                    <td><?php echo $row['orderno'] ?></td>   
-                                    <td><?php echo $row['orderdate'] ?></td>
-                                    <td><?php echo $row['deliverydate'] ?></td>
-                                    <td><?php echo $row['details'] ?></td>
-                                    <td><?php echo $row['status'] ?></td>   
-                                    <td><?php echo $row['price'] ?></td>
-                                   
-                                    <td>
-                                    <?php
-                                    if($row['rating'] == 5){
-                                        ?>
-                                        <button onclick='rate(1, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(2, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(3, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(4, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(5, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <?php
-                                    }else if($row['rating'] == 4){
-                                        ?>
-                                        <button onclick='rate(1, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(2, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(3, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(4, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(5, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <?php
+                    if ($returnval->rowCount() == 0) {
+            ?>
 
-                                    }else if($row['rating'] == 3){
-                                        ?>
-                                        <button onclick='rate(1, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(2, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(3, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(4, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(5, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <?php
-                                        
-                                    }else if($row['rating'] == 2){
-                                        ?>
-                                        <button onclick='rate(1, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(2, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(3, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(4, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(5, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <?php
-                                        
-                                    }
-                                    else if($row['rating'] == 1){
-                                        ?>
-                                        <button onclick='rate(1, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(2, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(3, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(4, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(5, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <?php
-                                        
-                                    }
-                                    else{
-                                        ?>
-                                        <button onclick='rate(1, <?php echo $row['orderno'] ?>)'>*</button>
-                                        <button onclick='rate(2, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(3, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(4, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <button onclick='rate(5, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
-                                        <?php
+                        <tr>
+                            <td colspan="7">Empty</td>
+                        </tr>
 
-                                    }
-
-                                    ?>
-
-                                    </td>
-                                </tr>
-                            <?php
-                        }
+                    <?php
+                    } else {
                     }
-                    catch(PDOException $ex){
-                        ?>
-                            <tr>
-                                <td colspan="5"><?php echo $ex->getMessage() ?></td>    
-                            </tr>
-                        <?php
-                    }
-                    
-                }
-                catch(PDOException $ex){
+
+                    foreach ($productstable as $row) {
                     ?>
                         <tr>
-                        <td colspan="5"><?php echo $ex->getMessage() ?></td>    
+                            <td><?php echo $row['orderno'] ?></td>
+                            <td><?php echo $row['orderdate'] ?></td>
+                            <td><?php echo $row['deliverydate'] ?></td>
+                            <td><?php echo $row['details'] ?></td>
+                            <td><?php echo $row['status'] ?></td>
+                            <td><?php echo $row['price'] ?></td>
+                            <td width=200px>
+                                <?php
+                                if ($row['rating'] == 5) {
+                                ?>
+                                    <button onclick='rate(1, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(2, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(3, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(4, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(5, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                <?php
+                                } else if ($row['rating'] == 4) {
+                                ?>
+                                    <button onclick='rate(1, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(2, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(3, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(4, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(5, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                <?php
+
+                                } else if ($row['rating'] == 3) {
+                                ?>
+                                    <button onclick='rate(1, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(2, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(3, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(4, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(5, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                <?php
+
+                                } else if ($row['rating'] == 2) {
+                                ?>
+                                    <button onclick='rate(1, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(2, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(3, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(4, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(5, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i'></button>
+                                <?php
+
+                                } else if ($row['rating'] == 1) {
+                                ?>
+                                    <button onclick='rate(1, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star"></i></button>
+                                    <button onclick='rate(2, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(3, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(4, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(5, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                <?php
+
+                                } else if ($row['rating'] == null) {
+                                    ?>
+                                    <button onclick='rate(1, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(2, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(3, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(4, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <button onclick='rate(5, <?php echo $row['orderno'] ?>)' class="btn"><i class="fa fa-star-o"></i></button>
+                                    <?php
+                                }
+                                else{
+                                    ?>
+                                    <button onclick='rate(1, <?php echo $row['orderno'] ?>)'>*</button>
+                                    <button onclick='rate(2, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
+                                    <button onclick='rate(3, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
+                                    <button onclick='rate(4, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
+                                    <button onclick='rate(5, <?php echo $row['orderno'] ?>)'>&nbsp;</button>
+                                    <?php
+
+                                }
+
+                                ?>
+                                    
+
+                            </td>
                         </tr>
                     <?php
+                    }
+                } catch (PDOException $ex) {
+                    ?>
+                    <tr>
+                        <td colspan="5"><?php echo $ex->getMessage() ?></td>
+                    </tr>
+                <?php
                 }
+            } catch (PDOException $ex) {
+                ?>
+                <tr>
+                    <td colspan="5"><?php echo $ex->getMessage() ?></td>
+                </tr>
+            <?php
+            }
             ?>
         </tbody>
     </table>
- <br/><br/>
-    <button onclick="goback()">Go Back</button>
+    <br /><br />
 
-</div>
+</body>
 
-<?php
-
-?>
+</html>

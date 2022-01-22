@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto");
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+    background-image: url(../staticfiles/pr_bg.jpg);
+    background-size: cover;
+}
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 40px 10%;
+  background-color: #24252a;
+}
+
+.logo {
+  margin-right: auto;
+  color: aliceblue;
+  font-size: larger;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: #0088a9;
+}
+
+/* end of nav */
+
+.container {
+    width: 60%;
+    max-width: 1000px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .right {
+    width: 40%;
+    background-color: #1bf7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 8px;
+    margin-left: -40px;
+  }
+
+  .right p {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 15px;
+    font-family: "Poppins", sans-serif;
+    color: rgb(23, 23, 24);
+  }
+
+  .right h1{
+      color:rgb(0, 0, 114)
+  }
+
+
+
+
+  table {
+    position: fixed;
+    top: 80%;
+    left: 15%;
+  
+  }
+
+  td,
+  th {
+    padding: 15px 30px;
+    text-align: center;
+  }
+  th {
+    background-color: #486eec;
+    color: #eeecec;
+    font-family: "Open Sans", Sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+  }
+  tr {
+    width: 100%;
+    background-color: #9f18fa;
+    font-family: "Montserrat", sans-serif;
+    color: #bdf71f;
+  }
+
+ h1{
+     text-align: center;
+     color: azure;
+ }

@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto");
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 40px 10%;
+  background-color: #24252a;
+}
+
+.logo {
+  margin-right: auto;
+  color: aliceblue;
+  font-size: larger;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: #0088a9;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: rgb(12, 12, 12);
+  margin-top: 1%;
+  width: auto;
+}
+
+table {
+  position: relative;
+  top: 25%;
+  left: 2%;
+  width: 95%;
+}
+td,
+th {
+  padding: 15px 30px;
+  text-align: center;
+}
+th {
+  background-color: #1abcee;
+  color: #fffbfb;
+  font-family: "Open Sans", Sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+tr {
+  width: 90%;
+  background-color: #0d0c0e;
+  font-family: "Montserrat", sans-serif;
+  color: #dfe225;
+}
+
+

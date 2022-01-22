@@ -1,0 +1,97 @@
+* {
+    font-family: sans-serif; /* Change your font family */
+
+  }
+  body {
+      background: aliceblue;
+
+  }
+
+  h1 {
+      text-align: center;
+  }
+  
+  .content {
+    border-collapse: collapse;
+    margin: 2%;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    
+  }
+  
+  .content thead tr {
+    background-color: #2059f5;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    border: black;
+  }
+  
+  .content th,
+  .content td {
+    padding: 12px 15px;
+    border:black;
+    text-align: center;
+    
+  }
+  
+  .content tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .content tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  .content tbody th,td {
+      border-radius: 2px;
+      background-color:rgb(156, 219, 228);
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    height: 5%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+   
+  }
+
+  form {
+    padding-left: 40%;
+  }
+
+ .transaction form input{
+   width: 20%;
+   height: 5%;
+   font-size: medium;
+   cursor: pointer;
+   
+ }
+ form .btn_submit {
+   width: 165%;
+
+   
+ }
+  .btn1 button {
+    background-color: rgb(235, 221, 17);
+    color: rgb(18, 96, 241);
+    font-size: medium;
+    cursor: pointer;
+  }
+
+  .btn2 button {
+    background-color: rgb(169, 28, 235);
+    color: rgb(219, 224, 235);
+    font-size: medium;
+    cursor: pointer;
+  }
+
+  button:hover{
+      background-color: darkslategray;
+  }

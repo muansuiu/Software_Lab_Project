@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #1e1e1f;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    color: blanchedalmond;
+  }
+  
+  .logo {
+    margin-right: auto;
+    color:aliceblue;
+    font-size: larger;
+    font-family: 'Poppins',sans-serif;
+  }
+
+  
+  .nav__links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav__links a,
+  .cta,
+  .overlay__content a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #edf0f1;
+    text-decoration: none;
+  }
+  
+  .nav__links li {
+    padding: 0px 20px;
+  }
+  
+  .nav__links li a {
+    transition: all 0.3s ease 0s;
+  }
+  
+  .nav__links li a:hover {
+    color: #0004fa;
+  } 
+
+  section {
+    background-image: url(../staticfiles/bg-cat.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .container .card {
+
+    width: 20%;
+    min-height: 300px;
+    float: left;
+    background-color: #1b1919f6;
+    padding: 25px;
+    border-radius: 8px;
+    color: rgb(236, 236, 250);
+    margin-left: 10px;
+    margin-top: 20px;
+    opacity: 1;
+  }
+
+  .container .card:hover {
+    background-color: blueviolet;
+  }
+
+.card .btn {
+  padding-left: 20%;
+}
+  .card button {
+    width: 70%;
+    height: 35px;
+    background-color: rgb(225, 230, 236);
+    font-size: medium;
+    font-weight: 500;
+    font-family: 'Poppins',sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: black;
+    
+  }
+
+  .card button:hover{
+    background-color: rgb(32, 27, 5);
+    color: cornsilk;
+  }
